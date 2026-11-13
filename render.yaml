@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: saxon-test-maker
+    runtime: python
+    plan: free
+    buildCommand: "echo no build steps"
+    startCommand: "python saxon_portal.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
