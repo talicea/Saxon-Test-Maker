@@ -417,8 +417,14 @@ class Interp:
         if f == 'fraction':
             return lx_wrap(r'\frac{' + lx_unwrap(fmt_val(tex(a[0]))) + '}{' + lx_unwrap(fmt_val(tex(a[1]))) + '}')
         if f == 'polynom':
-            return lx_wrap(polynom(str(fmt_val(a[0]))))
-        # known unsupported drawing / typesetting functions from the original Tester
+            src = str(fmt_val(a[0]))
+            r = polynom(src)
+            # Plain English (e.g. "obtuse angle") must not go through math mode —
+            # TeX collapses spaces and italicizes letter runs → "obtuseangle".
+            if ' ' in src and not re.search(r'[\d^]', src):
+                return r
+            return lx_wrap(r)        
+          # known unsupported drawing / typesetting functions from the original Tester
         if f in ('slate', 'line', 'loadpict',
                  'flood', 'overbar', 'root', 'picture',
                  'graph', 'draw', 'arc', 'circle', 'rect', 'poly', 'text'):
