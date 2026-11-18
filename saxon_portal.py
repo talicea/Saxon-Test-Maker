@@ -136,11 +136,11 @@ $('go').onclick = () => {
 // facts
 const PRESETS = {
   A:{op:'add',mode:'full',letter:'A',title:'100 Addition Facts',instr:'Add.',headers:'Name,Date',rows:10,cols:10},
-  B:{op:'sub',mode:'full',letter:'B',title:'100 Subtraction Facts',instr:'Subtract.',headers:'Name,Time',rows:10,cols:10},
-  C:{op:'mul',mode:'focus',letter:'C',title:"Multiplication Facts:\\n0's, 1's, 2's, 5's",instr:'Multiply.',headers:'Name,Time,Date',rows:8,cols:8,focus:'0,1,2,5'},
-  G:{op:'mul',mode:'full',letter:'G',title:'64 Multiplication Facts',instr:'Multiply.',headers:'Name,Time',rows:8,cols:8},
-  H:{op:'mul',mode:'full',letter:'H',title:'100 Multiplication Facts',instr:'Multiply.',headers:'Name,Time',rows:10,cols:10},
-  I:{op:'div',mode:'full',letter:'I',title:'90 Division Facts',instr:'Divide.',headers:'Name,Time',rows:9,cols:10},
+  B:{op:'sub',mode:'full',letter:'B',title:'100 Subtraction Facts',instr:'Subtract.',headers:'Name,Date',rows:10,cols:10},
+  C:{op:'mul',mode:'focus',letter:'C',title:"Multiplication Facts:\\n0's, 1's, 2's, 5's",instr:'Multiply.',headers:'Name,Date',rows:8,cols:8,focus:'0,1,2,5'},
+  G:{op:'mul',mode:'full',letter:'G',title:'64 Multiplication Facts',instr:'Multiply.',headers:'Name,Date',rows:8,cols:8},
+  H:{op:'mul',mode:'full',letter:'H',title:'100 Multiplication Facts',instr:'Multiply.',headers:'Name,Date',rows:10,cols:10},
+  I:{op:'div',mode:'full',letter:'I',title:'90 Division Facts',instr:'Divide.',headers:'Name,Date',rows:9,cols:10},
 };
 $('fpreset').onchange = () => {
   const p = PRESETS[$('fpreset').value];
