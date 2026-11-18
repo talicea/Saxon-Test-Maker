@@ -156,13 +156,13 @@ PRESETS = {
         # subtrahend 0-12, non-negative). Not forced to be addition inverses.
         'letter': 'B', 'op': 'sub', 'mode': 'full',
         'title': '100 Subtraction Facts', 'instruction': 'Subtract.',
-        'headers': ['Name', 'Time'], 'rows': 10, 'cols': 10,
+        'headers': ['Name', 'Date'], 'rows': 10, 'cols': 10,
         'footer_right': 'Saxon Math 5/4',
     },
     'C': {
         'letter': 'C', 'op': 'mul', 'mode': 'focus', 'focus': {0,1,2,5},
         'title': "Multiplication Facts:\n0's, 1's, 2's, 5's", 'instruction': 'Multiply.',
-        'headers': ['Name', 'Time', 'Date'], 'rows': 8, 'cols': 8,
+        'headers': ['Name', 'Date'], 'rows': 8, 'cols': 8,
         'footer_right': 'Saxon Math 5/4',
     },
     'G': {
@@ -170,20 +170,20 @@ PRESETS = {
         # multiplication variant (same as H but letter G / title adjustable).
         'letter': 'G', 'op': 'mul', 'mode': 'full',
         'title': '64 Multiplication Facts', 'instruction': 'Multiply.',
-        'headers': ['Name', 'Time'], 'rows': 8, 'cols': 8,
+        'headers': ['Name', 'Date'], 'rows': 8, 'cols': 8,
         'a_range': (2,9), 'b_range': (2,9),
         'footer_right': 'Saxon Math 5/4',
     },
     'H': {
         'letter': 'H', 'op': 'mul', 'mode': 'full',
         'title': '100 Multiplication Facts', 'instruction': 'Multiply.',
-        'headers': ['Name', 'Time'], 'rows': 10, 'cols': 10,
+        'headers': ['Name', 'Date'], 'rows': 10, 'cols': 10,
         'footer_right': 'Saxon Math 5/4',
     },
     'I': {
         'letter': 'I', 'op': 'div', 'mode': 'full',
         'title': '90 Division Facts', 'instruction': 'Divide.',
-        'headers': ['Name', 'Time'], 'rows': 9, 'cols': 10,
+        'headers': ['Name', 'Date'], 'rows': 9, 'cols': 10,
         'footer_right': 'Saxon Math 5/4',
     },
 }
