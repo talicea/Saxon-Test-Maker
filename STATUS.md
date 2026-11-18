@@ -1,4 +1,4 @@
-# Saxon Test Maker - status (merged: layout engine + Grok's launchers/polynom)
+# Saxon Test Maker - status (merged: layout engine + Grok's launchers/polynom + Facts Practice)
 
 **345 / 430 problems generate (315 clean, 30 flagged `~` for approximate equation layout).**
 Browser check (headless Chromium, 60 layouts across all books, 10-30 problems): the in-page fitter
@@ -35,3 +35,21 @@ Type size/spacing fit to the page in the browser (inline script); `FIT_K` is the
 Math from `fraction`, `radical`, `polynom`, `supersub`, `fences`, and `mathsym` is emitted as LaTeX and rendered with KaTeX (offline copy in `vendor/katex/`).
 Vertical arithmetic stacks remain HTML tables. Generated HTML loads local KaTeX first, CDN as fallback.
 Portal serves `/vendor/katex/*` so tests opened from the portal render offline.
+
+## Facts Practice (2026-11-17/18)
+New module `saxon_facts.py` + "Facts Practice" tab in the portal (`/facts` route). Reference notes: `FACTS_ANALYSIS.md`, `facts_samples.csv`.
+Presets: A (100 add), B (100 sub), C (mul focus 0/1/2/5 = 64), G (64 mul, factors 2-9), H (100 mul), I (90 div).
+Modes: full-set (each fact once), focus-set (at least one factor in focus digits), practice (balanced fill with repetition).
+Layout follows the sample FPT PDFs: FACTS PRACTICE TEST bar, letter box, title, Name/Time/Date lines, instruction,
+fixed-size grid, footer. Each sheet yields a Test page plus a matching Answer Key page.
+- Vertical add/sub/mul cells: problem pinned at the top with blank space under the rule for writing the answer.
+- Division is horizontal (`8 ÷ 2 = ____`), not long-division brackets (changed from the first version).
+- B draws randomly from a positive subtraction stock (minuend 0-20, subtrahend 0-12), not a fixed addition-inverse table.
+- Choosing a preset supplies its op/mode/letter/title; form fields only override. Focus digits start empty (C fills in 0,1,2,5).
+- CLI: `python3 saxon_facts.py --preset A --sheets 2 --seed 5 -o facts.html`
+
+## Deployment (Render)
+`render.yaml` runs `python saxon_portal.py`. When the `PORT` environment variable is set (Render does this), the portal
+listens on `0.0.0.0:$PORT` and does not open a browser; without it, it uses a random localhost port and opens the browser
+as before. Health check is `/`. Startup loads the whole problem library first (several seconds), so the first response is not instant.
+`Smde._bk` (problem library) is required at startup; licensing for it is being resolved separately.
